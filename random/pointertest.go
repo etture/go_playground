@@ -3,8 +3,12 @@ package main
 import "fmt"
 
 func main() {
-	passByValue()
-	passByPointer()
+	//passByValue()
+	//passByPointer()
+
+	var ps *PageSize = func() *PageSize { p := PageSize(15); return &p}()
+
+	fmt.Println(ps)
 }
 
 type person struct {
@@ -30,4 +34,7 @@ func passByPointer() {
 func renameByPointer(p *person) {
 	p.name = "test"
 }
+
+type PageSize uint32
+
 
